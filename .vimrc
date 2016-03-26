@@ -20,6 +20,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'godlygeek/Tabular'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
