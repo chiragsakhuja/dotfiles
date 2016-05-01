@@ -14,13 +14,12 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tomasr/molokai'
-Plugin 'ervandew/supertab'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'godlygeek/Tabular'
+Plugin 'scrooloose/nerdcommenter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -49,13 +48,6 @@ let g:tmuxline_preset = {
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
-" configure YCM compile flags for C/C++ semantic checking
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-Tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-S-tab>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-tab>'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-tab>'
