@@ -111,3 +111,6 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set cindent
+
+" remove delay for block edits
+set timeoutlen=1000 ttimeoutlen=0
