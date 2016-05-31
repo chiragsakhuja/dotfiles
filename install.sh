@@ -13,4 +13,4 @@ mkdir ~/.vim
 mkdir ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-vim -S "install_commands.ex"
+vim +PluginInstall +qall

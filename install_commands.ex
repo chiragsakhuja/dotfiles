@@ -1,2 +1,0 @@
-PluginInstall
-qa!
