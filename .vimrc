@@ -112,5 +112,8 @@ set shiftwidth=4
 set softtabstop=4
 set cindent
 
+" fix backspace
+set backspace=indent,eol,start
+
 " remove delay for block edits
 set timeoutlen=1000 ttimeoutlen=0
