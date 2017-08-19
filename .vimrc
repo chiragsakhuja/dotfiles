@@ -46,16 +46,17 @@ let g:tmuxline_preset = {
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<S-tab>'
-
 " show line numbers relative to current line
 set number
 
 " make vim pretty
 set background=dark
-colorscheme molokai
+
+try
+    colorscheme molokai
+catch /^Vim\%((\a\+)\)\=:E185/
+endtry
+
 set t_Co=256
 set t_ut=
 
