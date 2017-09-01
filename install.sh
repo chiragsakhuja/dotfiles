@@ -1,14 +1,30 @@
 #!/bin/bash
 
-rm -rf ~/.tmux*
-rm -rf ~/.vim*
-rm ~/.tmux.conf
-rm ~/.tmux.colors
-rm ~/.vimrc
+safeMove() {
+	if [ -z "$1" ]; then
+		return 1
+	fi
 
-ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/.tmux.colors ~/.tmux.colors
-ln -s ~/dotfiles/.vimrc ~/.vimrc
+	if [ -e "$1" ]; then
+		if [ -f "$1" -o -d "$1" ]; then
+			rm -rf "$1"
+		else
+			unlink "$1"
+		fi
+	fi
+
+	return 0
+}
+
+safeMove ~/.vim
+safeMove ~/.vimrc
+safeMove ~/.tmux.conf
+safeMove ~/.tmux.colors
+
+ln -rs ./.tmux.conf ~/.tmux.conf
+ln -rs ./.tmux.colors ~/.tmux.colors
+ln -rs ./.vimrc ~/.vimrc
+
 mkdir ~/.vim
 mkdir ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
