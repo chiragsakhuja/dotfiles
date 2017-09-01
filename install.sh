@@ -21,9 +21,9 @@ safeMove ~/.vimrc
 safeMove ~/.tmux.conf
 safeMove ~/.tmux.colors
 
-ln -rs ./.tmux.conf ~/.tmux.conf
-ln -rs ./.tmux.colors ~/.tmux.colors
-ln -rs ./.vimrc ~/.vimrc
+ln -s $PWD/.tmux.conf ~/.tmux.conf
+ln -s $PWD/.tmux.colors ~/.tmux.colors
+ln -s $PWD/.vimrc ~/.vimrc
 
 mkdir ~/.vim
 mkdir ~/.vim/bundle
