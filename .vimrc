@@ -13,9 +13,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'tomasr/molokai'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
+Plugin 'vim-scripts/wombat256.vim'
+Plugin 'itchyny/lightline.vim'
+" Plugin 'edkolev/tmuxline.vim'
 Plugin 'godlygeek/Tabular'
 Plugin 'scrooloose/nerdcommenter'
 
@@ -26,34 +26,17 @@ filetype plugin indent on    " required
 "filetype plugin on
 
 " configure airline
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:tmuxline_powerline_separators = 0
-let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '#W',
-      \'c'    : '#H',
-      \'win'  : '#I #W',
-      \'cwin' : '#I #W',
-      \'x'    : '#(/home/chirag/bin/uptime.sh)',
-      \'y'    : '%R',
-      \'z'    : '#H'}
-
-" disable unicode arrows in airline
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
+set noshowmode
 
 " show line numbers relative to current line
 set number
 
-" make vim pretty
-set background=dark
-
+" set colorscheme, if it exists
 try
-    colorscheme molokai
+    colorscheme wombat256mod
 catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
@@ -91,13 +74,6 @@ set smartcase
 set binary
 
 " leader commands
-" refresh all buffers
-fun! RefreshBuffers()
-  set noconfirm
-  bufdo e!
-  set confirm
-endfun
-nnoremap <Leader>gr call RefreshBuffers()
 " enable replace of word under cursor (shortcut <space> s)
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " quick save
@@ -107,6 +83,7 @@ nnoremap <Leader>h :noh<CR>
 
 " make good tabs
 set expandtab
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set cindent
