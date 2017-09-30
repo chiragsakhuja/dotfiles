@@ -31,6 +31,16 @@ let g:lightline = {
     \ }
 set noshowmode
 
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#W',
+      \'c'    : '#H',
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
+      \'y'    : '%R',
+      \'z'    : '#H'}
+
 " show line numbers relative to current line
 set number
 
