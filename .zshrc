@@ -82,4 +82,29 @@ export TERM="xterm-256color"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias 'f=find . -name'
+
+ZPDIRS=$HOME/.zpdirs
+pushpd() {
+    if [[ ! $# == 0 ]]; then
+        return 1
+    fi
+
+    echo $PWD >> $ZPDIRS
+}
+poppd() {
+    if [[ ( ! $# == 0 ) || ( ! -f $ZPDIRS ) ]]; then
+        return 1
+    fi
+
+    NEXTPWD=$(tail -n1 $ZPDIRS)
+
+    if [[ $NEXTPWD == "" ]]; then
+        return 2
+    fi
+
+    head -n-1 $ZPDIRS > $ZPDIRS.tmp
+    mv $ZPDIRS.tmp $ZPDIRS
+    cd $NEXTPWD
+}
+
+alias f='find . -name'
