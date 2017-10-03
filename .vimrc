@@ -90,6 +90,8 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 nnoremap <Leader>w :w<CR>
 " remove highlighting
 nnoremap <Leader>h :noh<CR>
+" destroy buffer
+nnoremap <Leader>q :bd<CR>
 
 " make good tabs
 set expandtab
