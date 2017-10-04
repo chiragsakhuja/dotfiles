@@ -14,7 +14,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-scripts/wombat256.vim'
-Plugin 'itchyny/lightline.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'edkolev/tmuxline.vim'
 Plugin 'godlygeek/Tabular'
 Plugin 'scrooloose/nerdcommenter'
@@ -26,9 +27,13 @@ filetype plugin indent on    " required
 "filetype plugin on
 
 " configure airline
-let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ }
+let g:airline_theme = 'wombat'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline_symbols_ascii = 1
 set noshowmode
 
 let g:tmuxline_powerline_separators = 0
