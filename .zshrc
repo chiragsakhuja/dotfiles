@@ -89,6 +89,7 @@ bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
+bindkey '^r' history-incremental-search-backward
 export KEYTIMEOUT=1
 
 function zle-line-init zle-keymap-select {
