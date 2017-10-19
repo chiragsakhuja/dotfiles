@@ -1,30 +1,14 @@
-" map leader character to space
-let mapleader = "\<Space>"
+set nocompatible
 
-let g:vundle_default_git_proto = 'git'
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'vim-scripts/wombat256.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'edkolev/tmuxline.vim'
-Plugin 'godlygeek/Tabular'
-Plugin 'scrooloose/nerdcommenter'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+" load plugins
+call plug#begin()
+Plug 'vim-scripts/wombat256.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'edkolev/tmuxline.vim'
+Plug 'godlygeek/Tabular'
+Plug 'scrooloose/nerdcommenter'
+call plug#end()
 
 " configure airline
 let g:airline_theme = 'wombat'
@@ -45,6 +29,9 @@ let g:tmuxline_preset = {
       \'cwin' : '#I #W',
       \'y'    : '%R',
       \'z'    : '#H'}
+
+" map leader character to space
+let mapleader = "\<Space>"
 
 " show line numbers relative to current line
 set number

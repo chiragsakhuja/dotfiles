@@ -46,7 +46,6 @@ ln -s $PWD/.tmux.conf ~/.tmux.conf
 ln -s $PWD/.tmux.colors ~/.tmux.colors
 ln -s $PWD/.vimrc ~/.vimrc
 
-mkdir -p ~/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vim +PluginInstall +qall
+vim +PlugInstall +qall
