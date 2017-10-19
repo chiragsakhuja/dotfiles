@@ -83,6 +83,15 @@ export TERM="xterm-256color"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Use vim keybindings in the shell
+bindkey -v
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+export KEYTIMEOUT=1
+
+# Enable pushd and popd across all terminals
 ZPDIRS=$HOME/.zpdirs
 pushpd() {
     if [[ ! $# == 0 ]]; then
