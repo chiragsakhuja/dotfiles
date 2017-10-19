@@ -5,9 +5,10 @@ call plug#begin()
 Plug 'vim-scripts/wombat256.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'edkolev/tmuxline.vim'
-Plug 'godlygeek/Tabular'
+" Plug 'edkolev/tmuxline.vim', { 'on': 'Tmuxline' }
+Plug 'godlygeek/Tabular', { 'on': 'Tabularize' }
 Plug 'scrooloose/nerdcommenter'
+Plug 'w0rp/ale'
 call plug#end()
 
 " configure airline
