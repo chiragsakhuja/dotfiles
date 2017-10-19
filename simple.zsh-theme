@@ -71,4 +71,4 @@ build_prompt() {
 }
 
 PROMPT='$(build_prompt)
-> '
+$VIMODE > '

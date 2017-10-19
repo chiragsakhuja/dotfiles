@@ -91,6 +91,18 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 export KEYTIMEOUT=1
 
+function zle-line-init zle-keymap-select {
+    case ${KEYMAP} in
+        (vicmd)      VIMODE="N" ;;
+        (main|viins) VIMODE="I" ;;
+        (*)          VIMODE="I" ;;
+    esac
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 # Enable pushd and popd across all terminals
 ZPDIRS=$HOME/.zpdirs
 pushpd() {
