@@ -87,11 +87,11 @@ nnoremap <Leader>h :noh<CR>
 nnoremap <Leader>q :bd<CR>
 
 " make good tabs
-set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=8
 set softtabstop=4
-set cindent
+set shiftwidth=4
+set expandtab
+set smartindent
 
 " fix backspace
 set backspace=indent,eol,start
