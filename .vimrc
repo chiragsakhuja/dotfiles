@@ -90,8 +90,8 @@ nnoremap <Leader>q :bd<CR>
 set tabstop=8
 set softtabstop=4
 set shiftwidth=4
-set expandtab
 set smartindent
+set expandtab
 
 " fix backspace
 set backspace=indent,eol,start
