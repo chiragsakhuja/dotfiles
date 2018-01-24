@@ -156,6 +156,14 @@ mcd() {
     mkdir $1 && cd $1
 }
 
+cl() {
+    if [[ ! $# == 1 ]]; then
+        return 1
+    fi
+
+    cd $1 && ls $1
+}
+
 alias f='find . -name'
 
 # add changes in local branch below here
