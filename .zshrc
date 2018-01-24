@@ -148,4 +148,12 @@ realpath() {
     fi
 }
 
+mcd() {
+    if [[ ! $# == 1 ]]; then
+        return 1
+    fi
+
+    mkdir $1 && cd $1
+}
+
 alias f='find . -name'
