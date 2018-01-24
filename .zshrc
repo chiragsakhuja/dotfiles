@@ -161,7 +161,7 @@ cl() {
         return 1
     fi
 
-    cd $1 && ls $1
+    cd $1 && ls .
 }
 
 alias f='find . -name'
