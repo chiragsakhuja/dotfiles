@@ -165,5 +165,6 @@ cl() {
 }
 
 alias f='find . -name'
+alias cd='cl'
 
 # add changes in local branch below here
