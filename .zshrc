@@ -129,7 +129,7 @@ poppd() {
     cd $NEXTPWD
 }
 
-realpath() {
+abspath() {
     # generate absolute path from relative path
     # $1     : relative filename
     # return : absolute path
@@ -157,11 +157,11 @@ mcd() {
 }
 
 cl() {
-    if [[ ! $# == 1 ]]; then
+    if [[ $# < 1 ]]; then
         return 1
     fi
 
-    cd $1 && ls .
+    cd $@ && ls .
 }
 
 alias f='find . -name'
