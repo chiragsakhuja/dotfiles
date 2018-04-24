@@ -156,7 +156,15 @@ mcd() {
     mkdir $1 && cd $1
 }
 
-cl() {
+pcd() {
+    if [[ ! $# == 1 ]]; then
+        return 1
+    fi
+
+    cd ${PWD%/$1/*}/$1;
+}
+
+lcd() {
     if [[ $# < 1 ]]; then
         return 1
     fi
@@ -165,6 +173,6 @@ cl() {
 }
 
 alias f='find . -name'
-alias cd='cl'
+alias cd='lcd'
 
 # add changes in local branch below here
