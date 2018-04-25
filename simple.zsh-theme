@@ -70,5 +70,6 @@ build_prompt() {
   prompt_end
 }
 
-PROMPT='$(build_prompt)
+PROMPT='
+$(build_prompt)
 $VIMODE > '
