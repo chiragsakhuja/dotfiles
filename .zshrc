@@ -148,28 +148,26 @@ abspath() {
     fi
 }
 
-mcd() {
-    if [[ ! $# == 1 ]]; then
-        return 1
-    fi
-
-    mkdir $1 && cd $1
-}
-
-pcd() {
-    if [[ ! $# == 1 ]]; then
-        return 1
-    fi
-
-    cd ${PWD%/$1/*}/$1;
-}
-
 lcd() {
     if [[ $# < 1 ]]; then
         return 1
     fi
 
     cd $@ && ls .
+}
+mcd() {
+    if [[ ! $# == 1 ]]; then
+        return 1
+    fi
+
+    mkdir $1 && lcd $1
+}
+pcd() {
+    if [[ ! $# == 1 ]]; then
+        return 1
+    fi
+
+    lcd ${PWD%/$1/*}/$1;
 }
 
 alias f='find . -name'
