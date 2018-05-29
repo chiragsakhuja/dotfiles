@@ -9,6 +9,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/Tabular', { 'on': 'Tabularize' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
+Plug 'tpope/vim-unimpaired'
+
 call plug#end()
 
 " configure airline
