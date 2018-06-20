@@ -38,8 +38,6 @@ if [[ $ZSHFOUND == 0 ]]; then
     safeMove ~/.zshrc
     safeMove ~/.oh-my-zsh
 
-    exit 0
-
     if [[ "$SHELL" != "$ZSHROOT" ]]; then
         chsh -s $ZSHROOT -u $USER
     fi
