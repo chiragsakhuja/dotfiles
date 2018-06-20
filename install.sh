@@ -2,27 +2,43 @@
 
 # Must be run from within this directory
 
-safeDelete() {
-	if [ -z "$1" ]; then
-		return 1
-	fi
+safeMove() {
+    NEWEXT=""
+    if [[ $# -ne 2 ]]; then
+        NEWEXT="old"
+    elif [[ $# -eq 2 ]]; then
+        NEWEXT="$2"
+    else
+        return 1
+    fi
 
-	if [ -e "$1" ]; then
-		if [ -f "$1" -o -d "$1" ]; then
-			rm -rf "$1"
-		else
-			unlink "$1"
-		fi
-	fi
+    if [[ -e "$1" ]]; then
+        NEWNAME="$1.$NEWEXT"
+        while [[ -e "$NEWNAME" ]]; do
+            NEWNAME="$NEWNAME.$NEWEXT"
+        done
 
-	return 0
+        if [[ -L "$1" ]]; then
+            LINKPATH=$(readlink "$1")
+            echo "Relinking $1 to $NEWNAME"
+            unlink "$1"
+            ln -s "$LINKPATH" "$NEWNAME"
+        else
+            echo "Moving $1 to $NEWNAME"
+            mv "$1" "$NEWNAME"
+        fi
+    fi
+
+    return 0
 }
 
 ZSHROOT=$(which zsh)
 ZSHFOUND=$?
-if [ $ZSHFOUND -eq 0 ]; then
-    safeDelete ~/.zshrc
-    safeDelete ~/.oh-my-zsh
+if [[ $ZSHFOUND == 0 ]]; then
+    safeMove ~/.zshrc
+    safeMove ~/.oh-my-zsh
+
+    exit 0
 
     if [[ "$SHELL" != "$ZSHROOT" ]]; then
         chsh -s $ZSHROOT -u $USER
@@ -30,17 +46,17 @@ if [ $ZSHFOUND -eq 0 ]; then
 
     wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
-    safeDelete ~/.zshrc   # need to do this again because installer creates a zshrc
+    safeMove ~/.zshrc   # need to do this again because installer creates a zshrc
     ln -s $PWD/.zshrc ~/.zshrc
 
     mkdir -p ~/.oh-my-zsh/custom/themes/
     ln -s $PWD/simple.zsh-theme ~/.oh-my-zsh/custom/themes/
 fi
 
-safeDelete ~/.vim
-safeDelete ~/.vimrc
-safeDelete ~/.tmux.conf
-safeDelete ~/.tmux.colors
+safeMove ~/.vim
+safeMove ~/.vimrc
+safeMove ~/.tmux.conf
+safeMove ~/.tmux.colors
 
 ln -s $PWD/.tmux.conf ~/.tmux.conf
 ln -s $PWD/.tmux.colors ~/.tmux.colors
