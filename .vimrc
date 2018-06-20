@@ -10,7 +10,8 @@ Plug 'godlygeek/Tabular', { 'on': 'Tabularize' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-unimpaired'
-
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " configure airline
@@ -101,3 +102,6 @@ set backspace=indent,eol,start
 
 " remove delay for block edits
 set timeoutlen=1000 ttimeoutlen=0
+
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>b :Buffers<CR>

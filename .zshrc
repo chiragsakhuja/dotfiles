@@ -173,4 +173,8 @@ pcd() {
 alias f='find . -name'
 alias cd='lcd'
 
+if [[ -f ~/.fzf.zsh ]]; then
+    source ~/.fzf.zsh
+fi
+
 # add changes in local branch below here
