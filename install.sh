@@ -4,7 +4,7 @@
 
 safeMove() {
     NEWEXT=""
-    if [[ $# -ne 2 ]]; then
+    if [[ $# -eq 1 ]]; then
         NEWEXT="old"
     elif [[ $# -eq 2 ]]; then
         NEWEXT="$2"
