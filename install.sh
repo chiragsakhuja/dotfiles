@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Must be run from within this directory
-
 safeMove() {
     NEWEXT=""
     if [[ $# -eq 1 ]]; then
@@ -32,6 +30,12 @@ safeMove() {
     return 0
 }
 
+REMOTE=$(git config --get remote.origin.url)
+if [[ ! $REMOTE =~ chiragsakhuja/dotfiles ]]; then
+    echo "$0 should be run from within its directory"
+    exit 1
+fi
+
 ZSHROOT=$(which zsh)
 ZSHFOUND=$?
 if [[ $ZSHFOUND == 0 ]]; then
@@ -44,7 +48,7 @@ if [[ $ZSHFOUND == 0 ]]; then
 
     wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
-    safeMove ~/.zshrc   # need to do this again because installer creates a zshrc
+    rm ~/.zshrc   # need to do this again because installer creates a zshrc
     ln -s $PWD/.zshrc ~/.zshrc
 
     mkdir -p ~/.oh-my-zsh/custom/themes/
