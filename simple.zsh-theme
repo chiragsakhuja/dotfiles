@@ -32,7 +32,9 @@ prompt_context() {
 prompt_time() {
     local curtime=`date +%H:%M`
 
-    prompt_segment default default "[$curtime] "
+    prompt_segment default default "[$curtime"
+    #[[ ! -z $ZSH_COMMAND_TIME ]] && prompt_segment default default " $ZSH_COMMAND_TIME""s"
+    prompt_segment default default "] "
 }
 
 # Git: branch/detached head, dirty status

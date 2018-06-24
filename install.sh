@@ -53,6 +53,9 @@ if [[ $ZSHFOUND == 0 ]]; then
 
     mkdir -p ~/.oh-my-zsh/custom/themes/
     ln -s $PWD/simple.zsh-theme ~/.oh-my-zsh/custom/themes/
+
+    git clone https://github.com/popstas/zsh-command-time.git ~/.oh-my-zsh/custom/plugins/command-time
+    chmod g-w,o-w ~/.oh-my-zsh/custom/plugins/command-time
 fi
 
 safeMove ~/.vim
