@@ -103,5 +103,9 @@ set backspace=indent,eol,start
 " remove delay for block edits
 set timeoutlen=1000 ttimeoutlen=0
 
+" allow vim to have hidden buffers (i.e. unsaved changes in background buffer)
+set hidden
+
+" fzf bindings
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
