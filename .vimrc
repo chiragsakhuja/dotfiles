@@ -68,9 +68,6 @@ set nowrap
 " change Y behavior to yank from cursor to end of line
 nnoremap Y y$
 
-" syntax highlight glsl files
-au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
-
 " make seaching nicer
 set hlsearch
 set incsearch
@@ -109,3 +106,9 @@ set hidden
 " fzf bindings
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
+
+" filetype specific settings
+au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+au BufNewFile,BufRead *.md set colorcolumn=120
+au BufNewFile,BufRead *.md set tw=120
+au BufNewFile,BufRead *.md set spell spelllang=en_us
