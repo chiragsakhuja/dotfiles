@@ -30,7 +30,7 @@ prompt_context() {
 }
 
 prompt_time() {
-    local curtime=`date +%H:%M`
+    local curtime=`date +%H:%M:%S`
 
     prompt_segment default default "[$curtime"
     #[[ ! -z $ZSH_COMMAND_TIME ]] && prompt_segment default default " $ZSH_COMMAND_TIME""s"
