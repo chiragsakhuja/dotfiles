@@ -175,6 +175,7 @@ alias cd='lcd'
 
 if [[ -f ~/.fzf.zsh ]]; then
     source ~/.fzf.zsh
+    alias vimf='vim $(fzf)'
 fi
 
 # add changes in local branch below here
