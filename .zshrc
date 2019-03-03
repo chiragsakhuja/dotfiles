@@ -129,6 +129,40 @@ poppd() {
     cd $NEXTPWD
 }
 
+# Get to directories to jump to easily
+GODIRS=$HOME/.godirs
+get() {
+    if [[ ! $# == 1 ]]; then
+        return 1
+    fi
+
+    if [[ ! -f $GODIRS ]]; then
+        return 0
+    fi
+
+    SEARCH=$(grep $1 $GODIRS)
+    RES=$?
+    if [[ $RES == 0 ]]; then
+        DIR=$(echo $SEARCH | cut -d',' -f2 | head -n 1)
+        echo $DIR
+    else
+        return 2
+    fi
+}
+go() {
+    if [[ ! $# == 1 ]]; then
+        return 1
+    fi
+
+    DIR=$(get $1)
+    RES=$?
+    if [[ $RES == 0 ]]; then
+        cd $DIR
+    else
+        return $RES
+    fi
+}
+
 abspath() {
     # generate absolute path from relative path
     # $1     : relative filename
