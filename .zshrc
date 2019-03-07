@@ -126,7 +126,7 @@ poppd() {
 
     head -n-1 $ZPDIRS > $ZPDIRS.tmp
     mv $ZPDIRS.tmp $ZPDIRS
-    cd $NEXTPWD
+    lcd $NEXTPWD
 }
 
 # Get to directories to jump to easily
@@ -157,7 +157,7 @@ go() {
     DIR=$(get $1)
     RES=$?
     if [[ $RES == 0 ]]; then
-        cd $DIR
+        lcd $DIR
     else
         return $RES
     fi
