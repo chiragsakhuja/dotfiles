@@ -140,7 +140,7 @@ get() {
         return 0
     fi
 
-    SEARCH=$(grep $1 $GODIRS)
+    SEARCH=$(grep "$1[^,]*," $GODIRS)
     RES=$?
     if [[ $RES == 0 ]]; then
         DIR=$(echo $SEARCH | cut -d',' -f2 | head -n 1)
