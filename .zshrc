@@ -201,7 +201,20 @@ pcd() {
         return 1
     fi
 
-    lcd ${PWD%/$1/*}/$1;
+    lcd ${PWD%/$1/*}/$1
+}
+
+append_env() {
+    if [[ $# != 2 ]]; then
+        return 1
+    fi
+
+    CURVAL="${(P)1}"
+    if [[ -z "$CURVAL" ]]; then
+        export $1="$2"
+    else
+        export $1="$CURVAL:$2"
+    fi
 }
 
 alias f='find . -name'
