@@ -213,7 +213,7 @@ append_env() {
     if [[ -z "$CURVAL" ]]; then
         export $1="$2"
     else
-        export $1="$CURVAL:$2"
+        export $1="$2:$CURVAL"
     fi
 }
 

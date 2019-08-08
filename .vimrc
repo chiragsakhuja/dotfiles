@@ -88,11 +88,10 @@ nnoremap <Leader>h :noh<CR>
 nnoremap <Leader>q :bd<CR>
 
 " make good tabs
-set autoindent
-set tabstop=8
-set softtabstop=0
-set expandtab
 set shiftwidth=4
+set softtabstop=4
+set expandtab
+set cindent
 
 " fix backspace
 set backspace=indent,eol,start
@@ -109,6 +108,6 @@ nnoremap <Leader>b :Buffers<CR>
 
 " filetype specific settings
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
-au BufNewFile,BufRead *.md set colorcolumn=120
-au BufNewFile,BufRead *.md set tw=120
-au BufNewFile,BufRead *.md set spell spelllang=en_us
+au BufNewFile,BufRead *.md,*.tex set colorcolumn=80
+au BufNewFile,BufRead *.md,*.tex set tw=80
+au BufNewFile,BufRead *.md,*.tex set spell spelllang=en_us
