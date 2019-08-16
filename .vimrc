@@ -17,7 +17,7 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " configure airline
-let g:airline_theme = 'wombat'
+let g:airline_theme = 'badwolf'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline#extensions#tabline#enabled = 1
