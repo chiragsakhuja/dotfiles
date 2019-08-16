@@ -2,7 +2,8 @@ set nocompatible
 
 " load plugins
 call plug#begin()
-Plug 'vim-scripts/wombat256.vim'
+"Plug 'vim-scripts/wombat256.vim'
+Plug 'nielsmadan/harlequin'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'edkolev/tmuxline.vim', { 'on': 'Tmuxline' }
@@ -12,6 +13,7 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-unimpaired'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " configure airline
@@ -43,7 +45,7 @@ set number
 
 " set colorscheme, if it exists
 try
-    colorscheme wombat256mod
+    colorscheme harlequin
 catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
@@ -55,6 +57,7 @@ syntax on
 
 " highlight cursor
 set cursorline
+hi CursorLine cterm=NONE ctermbg=8 ctermfg=NONE
 
 " buffer lines when scrolling
 set scrolloff=2
