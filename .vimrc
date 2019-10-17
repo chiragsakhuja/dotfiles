@@ -89,6 +89,8 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>h :noh<CR>
 " destroy buffer
 nnoremap <Leader>q :bd<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>n :bn<CR>
 
 " make good tabs
 set shiftwidth=4
