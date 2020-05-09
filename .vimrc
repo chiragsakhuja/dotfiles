@@ -9,7 +9,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'edkolev/tmuxline.vim', { 'on': 'Tmuxline' }
 Plug 'godlygeek/Tabular', { 'on': 'Tabularize' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', { 'on': 'ALEToggle' }
 Plug 'tpope/vim-unimpaired'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -110,6 +110,9 @@ set hidden
 " fzf bindings
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
+
+" ALE bindings
+nnoremap <Leader>a :ALEToggle<CR>
 
 " filetype specific settings
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
