@@ -197,9 +197,20 @@ mcd() {
     mkdir $1 && lcd $1
 }
 pcd() {
-    if [[ ! $# == 1 ]]; then
+    if [[ ! $# == 1 && ! $# == 2 ]]; then
         return 1
     fi
+
+    PCDCOUNT=1
+    if [[ $# == 2 ]]; then
+        PCDCOUNT=$2
+    fi
+
+    while [[ $PCDCOUNT != 1 ]]; do
+        echo $PCDCOUNT
+        \cd ${PWD%/$1/*}/$1
+        PCDCOUNT=$((PCDCOUNT-1))
+    done
 
     lcd ${PWD%/$1/*}/$1
 }
