@@ -207,7 +207,6 @@ pcd() {
     fi
 
     while [[ $PCDCOUNT != 1 ]]; do
-        echo $PCDCOUNT
         \cd ${PWD%/$1/*}/$1
         PCDCOUNT=$((PCDCOUNT-1))
     done
