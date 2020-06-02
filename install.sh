@@ -46,7 +46,7 @@ if [[ $ZSHFOUND == 0 ]]; then
         chsh -s $ZSHROOT -u $USER
     fi
 
-    wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
     rm ~/.zshrc   # need to do this again because installer creates a zshrc
     ln -s $PWD/.zshrc ~/.zshrc
