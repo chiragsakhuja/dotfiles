@@ -58,6 +58,7 @@ syntax on
 " highlight cursor
 set cursorline
 hi CursorLine cterm=NONE ctermbg=8 ctermfg=NONE
+hi CursorLineNr cterm=NONE ctermbg=8 ctermfg=NONE
 
 " buffer lines when scrolling
 set scrolloff=2
