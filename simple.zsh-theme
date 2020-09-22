@@ -26,7 +26,7 @@ prompt_end() {
 prompt_context() {
   local user=`whoami`
 
-  prompt_segment default blue "%n@:"
+  prompt_segment default blue "%n@%m:"
 }
 
 prompt_time() {
@@ -46,7 +46,7 @@ prompt_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment default default '%~ '
+  prompt_segment default 245 '%~ '
 }
 
 # Status:
@@ -66,7 +66,7 @@ build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_time
-  prompt_context
+# prompt_context
   prompt_dir
 # prompt_git
   prompt_end
