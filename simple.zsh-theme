@@ -26,7 +26,7 @@ prompt_end() {
 prompt_context() {
   local user=`whoami`
 
-  prompt_segment default blue "%n@%m:"
+  prompt_segment default blue "%n@:"
 }
 
 prompt_time() {
