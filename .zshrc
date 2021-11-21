@@ -140,7 +140,9 @@ get() {
         return 0
     fi
 
-    SEARCH=$(grep "^$1[^,]*," $GODIRS)
+    HOST=$(hostname)
+    PRUNED=$(grep "$HOST\|*" $GODIRS | cut -d',' -f2-)
+    SEARCH=$(echo "$PRUNED" | grep "^$1[^,]*,")
     RES=$?
     if [[ $RES == 0 ]]; then
         DIR=$(echo $SEARCH | cut -d',' -f2 | head -n 1)
@@ -182,6 +184,7 @@ abspath() {
     fi
 }
 
+# Combine cd and ls
 lcd() {
     if [[ $# < 1 ]]; then
         return 1
@@ -189,6 +192,8 @@ lcd() {
 
     cd $@ && ls .
 }
+
+# Combine mkdir and cd
 mcd() {
     if [[ ! $# == 1 ]]; then
         return 1
@@ -196,6 +201,8 @@ mcd() {
 
     mkdir $1 && lcd $1
 }
+
+# Use pcd to go up to parent directory by name
 pcd() {
     if [[ ! $# == 1 && ! $# == 2 ]]; then
         return 1
@@ -235,4 +242,6 @@ if [[ -f ~/.fzf.zsh ]]; then
     alias vimf='vim $(fzf)'
 fi
 
-# add changes in local branch below here
+if [[ -f ~/.zshrc.local ]]; then
+    source ~/.zshrc.local
+fi

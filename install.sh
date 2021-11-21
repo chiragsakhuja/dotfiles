@@ -50,6 +50,8 @@ if [[ $ZSHFOUND == 0 ]]; then
 
     rm ~/.zshrc   # need to do this again because installer creates a zshrc
     ln -s $PWD/.zshrc ~/.zshrc
+    ln -s $PWD/.zshrc.local ~/.zshrc.local
+    ln -s $PWD/.godirs ~/.godirs
 
     mkdir -p ~/.oh-my-zsh/custom/themes/
     ln -s $PWD/simple.zsh-theme ~/.oh-my-zsh/custom/themes/
