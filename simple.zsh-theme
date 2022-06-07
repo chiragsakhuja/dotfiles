@@ -24,9 +24,11 @@ prompt_end() {
 ### Prompt components
 # Context: user (who am I)
 prompt_context() {
-  local user=`whoami`
+  prompt_segment default blue "%n@:"
+}
 
-  prompt_segment default blue "%n@%m:"
+prompt_hostname() {
+  prompt_segment default default "(%m) "
 }
 
 prompt_time() {
@@ -65,6 +67,7 @@ prompt_status() {
 build_prompt() {
   RETVAL=$?
   prompt_status
+  prompt_hostname
   prompt_time
 # prompt_context
   prompt_dir
