@@ -42,8 +42,10 @@ if [[ $ZSHFOUND == 0 ]]; then
     safeMove ~/.zshrc
     safeMove ~/.oh-my-zsh
 
+    mkdir -p ~/.cache/zcompdump
+
     if [[ "$SHELL" != "$ZSHROOT" ]]; then
-        chsh -s $ZSHROOT -u $USER
+        chsh -s $ZSHROOT
     fi
 
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
