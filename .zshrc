@@ -143,13 +143,12 @@ get() {
         return 0
     fi
 
-    if [[ $MACHINE == "" ]]; then
-        echo "MACHINE is not defined"
-        return 0
+    DIRS=$(cat $GODIRS)
+    if [[ $MACHINE != "" ]]; then
+        DIRS=$(echo "$DIRS" | grep "$MACHINE\|*" | cut -d',' -f2-)
     fi
 
-    PRUNED=$(grep "$MACHINE\|*" $GODIRS | cut -d',' -f2-)
-    SEARCH=$(echo "$PRUNED" | grep "^$1[^,]*,")
+    SEARCH=$(echo "$DIRS" | grep "^$1[^,]*,")
     RES=$?
     if [[ $RES == 0 ]]; then
         DIR=$(echo $SEARCH | cut -d',' -f2 | head -n 1)
