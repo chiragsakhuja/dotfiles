@@ -143,8 +143,12 @@ get() {
         return 0
     fi
 
-    HOST=$(hostname)
-    PRUNED=$(grep "$HOST\|*" $GODIRS | cut -d',' -f2-)
+    if [[ $MACHINE == "" ]]; then
+        echo "MACHINE is not defined"
+        return 0
+    fi
+
+    PRUNED=$(grep "$MACHINE\|*" $GODIRS | cut -d',' -f2-)
     SEARCH=$(echo "$PRUNED" | grep "^$1[^,]*,")
     RES=$?
     if [[ $RES == 0 ]]; then
