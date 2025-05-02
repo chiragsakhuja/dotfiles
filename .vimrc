@@ -8,11 +8,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'edkolev/tmuxline.vim', { 'on': 'Tmuxline' }
 Plug 'godlygeek/Tabular', { 'on': 'Tabularize' }
-Plug 'scrooloose/nerdcommenter'
-Plug 'w0rp/ale', { 'on': 'ALEToggle' }
 Plug 'tpope/vim-unimpaired'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 

@@ -67,9 +67,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 #   export EDITOR='mvim'
 # fi
 export EDITOR='vim'
+export PAGER='less'
 
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64"
 
 # Pretty colors
 export TERM="xterm-256color"
@@ -132,45 +133,6 @@ poppd() {
     lcd $NEXTPWD
 }
 
-# Get to directories to jump to easily
-GODIRS=$HOME/.godirs
-get() {
-    if [[ ! $# == 1 ]]; then
-        return 1
-    fi
-
-    if [[ ! -f $GODIRS ]]; then
-        return 0
-    fi
-
-    DIRS=$(cat $GODIRS)
-    if [[ $MACHINE != "" ]]; then
-        DIRS=$(echo "$DIRS" | grep "$MACHINE\|*" | cut -d',' -f2-)
-    fi
-
-    SEARCH=$(echo "$DIRS" | grep "^$1[^,]*,")
-    RES=$?
-    if [[ $RES == 0 ]]; then
-        DIR=$(echo $SEARCH | cut -d',' -f2 | head -n 1)
-        echo $DIR
-    else
-        return 2
-    fi
-}
-go() {
-    if [[ ! $# == 1 ]]; then
-        return 1
-    fi
-
-    DIR=$(get $1)
-    RES=$?
-    if [[ $RES == 0 ]]; then
-        lcd $DIR
-    else
-        return $RES
-    fi
-}
-
 abspath() {
     # generate absolute path from relative path
     # $1     : relative filename
@@ -196,7 +158,11 @@ lcd() {
         return 1
     fi
 
-    cd $@ && ls .
+    if [[ -f $HOME/.local/bin/zoxide ]]; then
+        z $@ && ls .
+    else
+        cd $@ && ls .
+    fi
 }
 
 # Combine mkdir and cd
@@ -242,6 +208,7 @@ append_env() {
 
 alias f='find . -name'
 alias cd='lcd'
+alias man="man -P $PAGER"
 
 if [[ -f ~/.fzf.zsh ]]; then
     source ~/.fzf.zsh
