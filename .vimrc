@@ -3,7 +3,7 @@ set nocompatible
 " load plugins
 call plug#begin()
 "Plug 'vim-scripts/wombat256.vim'
-Plug 'nielsmadan/harlequin'
+" Plug 'nielsmadan/harlequin'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'edkolev/tmuxline.vim', { 'on': 'Tmuxline' }
@@ -39,14 +39,17 @@ let mapleader = "\<Space>"
 " show line numbers relative to current line
 set number
 
-" set colorscheme, if it exists
-try
-    colorscheme harlequin
-catch /^Vim\%((\a\+)\)\=:E185/
-endtry
-
-set t_Co=256
+set termguicolors
+set encoding=utf-8
 set t_ut=
+
+" set colorscheme, if it exists
+" try
+"     colorscheme harlequin
+" catch /^Vim\%((\a\+)\)\=:E185/
+" endtry
+
+autocmd VimEnter * ++once silent! colorscheme torte
 
 " enable syntax highlighting
 syntax on
