@@ -65,10 +65,10 @@ fi
 safeMove ~/.vim
 safeMove ~/.vimrc
 safeMove ~/.tmux.conf
-safeMove ~/.tmux.colors
+safeMove ~/.tmux.conf.mine
 
 ln -s $PWD/.tmux.conf ~/.tmux.conf
-ln -s $PWD/.tmux.colors ~/.tmux.colors
+ln -s $PWD/.tmux.conf.mine ~/.tmux.conf.mine
 ln -s $PWD/.vimrc ~/.vimrc
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
