@@ -49,7 +49,7 @@ set t_ut=
 " catch /^Vim\%((\a\+)\)\=:E185/
 " endtry
 
-autocmd VimEnter * ++once silent! colorscheme torte
+autocmd VimEnter * ++once silent! colorscheme industry
 
 " enable syntax highlighting
 syntax on
