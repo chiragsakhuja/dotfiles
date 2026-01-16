@@ -25,13 +25,13 @@ set noshowmode
 
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '#W',
-      \'c'    : '#H',
-      \'win'  : '#I #W',
-      \'cwin' : '#I #W',
-      \'y'    : '%R',
-      \'z'    : '#H'}
+        \'a'    : '#S',
+        \'b'    : '#W',
+        \'c'    : '#H',
+        \'win'  : '#I #W',
+        \'cwin' : '#I #W',
+        \'y'    : '%R',
+        \'z'    : '#H'}
 
 " map leader character to space
 let mapleader = "\<Space>"
@@ -43,15 +43,8 @@ set termguicolors
 set encoding=utf-8
 set t_ut=
 
-" set colorscheme, if it exists
-" try
-"     colorscheme harlequin
-" catch /^Vim\%((\a\+)\)\=:E185/
-" endtry
-
-autocmd VimEnter * ++once silent! colorscheme industry
-
 " enable syntax highlighting
+colorscheme industry
 syntax on
 
 " highlight cursor
@@ -111,11 +104,26 @@ set hidden
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 
-" ALE bindings
-nnoremap <Leader>a :ALEToggle<CR>
 
-" filetype specific settings
-au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
-au BufNewFile,BufRead *.md,*.tex set colorcolumn=80
-au BufNewFile,BufRead *.md,*.tex set tw=80
-au BufNewFile,BufRead *.md,*.tex set spell spelllang=en_us
+" Consider files larger than 50 MB "large"
+let g:large_file_size = 50 * 1024 * 1024
+
+augroup LargeFile
+    autocmd!
+    autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:large_file_size || f == -2 | call LargeFileSettings() | endif
+augroup END
+
+function! LargeFileSettings()
+    " Disable heavy features
+    syntax off
+    set nonumber
+    set nocursorline
+    set lazyredraw
+    set noswapfile
+    set noundofile
+    
+    " Disable airline for this buffer
+    let b:airline_disable_statusline = 1
+    
+    echomsg "Large file detected, minimal settings loaded"
+endfunction
